@@ -1,0 +1,3 @@
+cspring:
+  profiles:
+    active: dev

@@ -1,0 +1,25 @@
+spring:
+  resources:
+    cache-period: 0
+  application:
+    name: mq-customer
+  rabbitmq:
+    host: 192.168.1.133
+    port: 5672
+    username: admin
+    password: abc+123
+    publisher-confirms: true
+    publisher-returns: true
+    listener:
+      direct:
+        acknowledge-mode: manual
+      simple:
+        #acknowledge-mode: manual
+        retry:
+          max-attempts: 3
+          enabled: true
+          initial-interval: 10000
+        default-requeue-rejected: false
+server:
+  port: 8085
+  context-path: /mq-customer
